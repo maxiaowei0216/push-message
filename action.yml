@@ -1,0 +1,17 @@
+name: 'Push message'
+description: 'Push message to specified user'
+inputs:
+  server:
+    description: 'Which server to be used to push message'
+    required: true
+    default: 'QYWX'
+  message:
+    description: 'Message'
+    required: true
+    default: 'Hello world'
+
+runs:
+  using: "composite"
+  steps:
+    - run: python3 main.py ${{ inputs.server }} -m ${{ inputs.message }}
+      shell: bash
