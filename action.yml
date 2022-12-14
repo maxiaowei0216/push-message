@@ -1,5 +1,8 @@
 name: 'Push message'
 description: 'Push message to specified user'
+branding:
+  icon: 'message-square'
+  color: 'blue'
 inputs:
   server:
     description: 'Which server to be used to push message'
