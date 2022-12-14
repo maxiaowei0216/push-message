@@ -10,15 +10,14 @@ def push_msg(obj: Server, msg: str):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('server', type=str, help="Specify which server to be used to push message.")
-    parser.add_argument('-m', help='Message')
+    parser.add_argument('-s', '--server', type=str, help="Specify which server to be used to push message.")
+    parser.add_argument('-m', '--message', help='Message')
 
     args = parser.parse_args()
-    server: str = args.server
 
-    if server.upper() == 'QYWX':
+    if args.server.upper() == 'QYWX':
         s = QYWX()
     else:
         s = Server()
 
-    push_msg(s, args.m)
+    push_msg(s, args.message)

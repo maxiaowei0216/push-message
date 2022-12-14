@@ -1,5 +1,8 @@
 name: 'Push message'
 description: 'Push message to specified user'
+branding:
+  icon: 'message-square'
+  color: 'blue'
 inputs:
   server:
     description: 'Which server to be used to push message'
@@ -11,7 +14,8 @@ inputs:
     default: 'Hello world'
 
 runs:
-  using: "composite"
-  steps:
-    - run: python3 main.py ${{ inputs.server }} -m ${{ inputs.message }}
-      shell: bash
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.server }}
+    - ${{ inputs.message }}
